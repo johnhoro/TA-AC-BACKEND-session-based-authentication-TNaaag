@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="">Home</a>
+      <nav>
+        <a href="/users/logout">Logout</a>
+      </nav>
+    </header>
+    <main>
+      <h1>
+        Login Success <% if(success) {%>
+        <p><%= success %></p>
+        <% } %>
+      </h1>
+    </main>
+  </body>
+</html>

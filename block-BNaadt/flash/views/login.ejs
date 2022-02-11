@@ -14,11 +14,15 @@
     </header>
     <main>
       <section>
+        <h2>Login</h2>
+        <% if(ep){ %>
+        <p><%= ep %></p>
+        <% } %> <% if(email){ %>
+        <p><%= email %></p>
+        <% } %> <% if(password){ %>
+        <p><%= password %></p>
+        <% } %>
         <form action="/users/login" method="POST">
-          <h2>Login</h2>
-          <% if(error){ %>
-          <p class="error"><%= error %></p>
-          <% } %>
           <input type="email" name="email" placeholder="Email" />
           <input type="password" name="password" placeholder="Password" />
           <input type="submit" value="Login" />
