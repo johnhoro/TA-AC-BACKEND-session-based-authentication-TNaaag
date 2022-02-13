@@ -1,230 +1,136 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+* {
+  box-sizing: border-box;
+}
+body {
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* GENERAL STYLE */
-
-header {
-  padding: 1rem;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
-  justify-content: space-between;
-  background-color: brown;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 .container {
-  max-width: 1100px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0.5rem 0;
 }
-.navbar ul {
-  display: flex;
+header {
+  width: 100%;
+  color: coral;
 }
-body {
-  line-height: 1.5;
-}
-.navbar ul li {
-  margin-left: 1rem;
-}
-
-a {
+header a {
+  color: black;
   text-decoration: none;
-  color: white;
+  margin: 0 1rem;
+  font-size: 20px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(40, 116, 240);
+  padding: 1rem;
+}
+.btn {
+  padding: 0.4rem 0.9rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
 }
 
 h1 {
-  font-size: 2rem;
-  margin-top: 3rem;
   text-align: center;
 }
-
-/* LIST OF ARTICLES */
-.users {
-  border-bottom: 1px solid rgb(177, 56, 56);
-  margin-top: 1rem;
-}
-
-.articles {
-  margin-top: 1rem;
-}
-
-h3 {
-  font-size: 2rem;
-  margin: 1rem 0;
-}
-.btn {
-  margin: 1rem 0;
-  background-color: gray;
-  color: white;
-  cursor: pointer;
-  border: none;
-  padding: 0.5rem 0.3rem;
-}
-
-/* NEW ARTICLE */
-.add-article {
+form {
   width: 600px;
-  margin: 2rem auto;
-}
-.add-article form {
-  display: flex;
-  flex-direction: column;
-}
-textarea {
-  margin: 1rem 0;
-}
-/* LOGIN */
-
-.login {
-  border: 1px solid rebeccapurple;
-  width: 400px;
-  padding: 1rem;
-  background-color: beige;
   margin: 0 auto;
 }
-.login form {
+textarea {
+  width: 100%;
+}
+label {
+  font-size: 1.3rem;
+}
+.btn-index {
+  font-size: 20px;
+  background-color: aquamarine;
+  border: 1px dashed red;
+  padding: 0.8rem 1rem;
+}
+.btn-index a:hover {
+  text-decoration: underline;
+}
+
+.comment-box {
+  width: 400px;
+  margin-left: 0;
+  margin-top: 1rem;
+}
+
+.card {
+  border-bottom: 2px dotted black;
+  padding: 1rem;
+}
+.card_title {
+  text-align: left;
+  font-size: 25px;
+}
+.card_body p {
+  text-align: left;
+  line-height: 25px;
+  font-size: 17px;
+}
+i.fa {
+  font-size: 20px;
+}
+.likes {
+  font-size: 18px;
+}
+a.read_more {
+  background-color: rgb(90, 53, 7);
+  padding: 10px 5px;
+  border-radius: 15px;
+  color: white;
+}
+.form-control {
   display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 input {
-  padding: 0.5rem;
+  width: 100%;
+  padding: 10px 2px;
+  margin: 0.5rem 0;
+}
+input[type="submit"] {
+  background-color: yellowgreen;
+  color: black;
+  border: 0;
+  font-size: 15px;
 }
 
-/* SIGNUP */
-.signup {
-  border: 1px solid red;
-  width: 600px;
-  margin: 0 auto;
-  padding: 1rem;
-  background-color: beige;
+section {
+  margin: 10px 0;
+  padding: 0.5rem;
+  background-color: rgb(241, 243, 246);
 }
-.signup form {
+section span {
+  margin-left: 0.5rem;
+  font-size: 25px;
+}
+.list {
   display: flex;
   flex-direction: column;
+}
+
+.details {
+  padding: 0.3rem 0.9rem;
+  background-color: rgb(109, 161, 243);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.details:hover {
+  background-color: rgb(40, 116, 240);
 }
