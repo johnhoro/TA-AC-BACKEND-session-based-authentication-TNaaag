@@ -3,23 +3,24 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var mongoose = require(`mongoose`);
+var session = require(`express-session`);
+var MongoStore = require(`connect-mongo`)(session);
+var flash = require(`connect-flash`);
 
-var mongoose = require("mongoose");
-var session = require("express-session");
-var flash = require("connect-flash");
-var MongoStore = require("connect-mongo")(session);
+require(`dotenv`).config();
+
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var articleRouter = require("./routes/article");
-var commentRouter = require("./routes/comment");
+var articlesRouter = require("./routes/article");
+var commentsRouter = require("./routes/comment");
+var usersRouter = require(`./routes/user`);
 
-require("dotenv").config();
-
+//connected to mongodb
 mongoose.connect(
-  "mongodb://localhost/blogApp",
+  `mongodb://localhost/blog`,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
-    console.log(err ? err : "Connected to database");
+    console.log(err ? err : "connected true");
   }
 );
 
@@ -33,9 +34,9 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
 app.use(express.static(path.join(__dirname, "public")));
 
+//add session
 app.use(
   session({
     secret: process.env.SECRET,
@@ -44,12 +45,13 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
+
 app.use(flash());
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/article", articleRouter);
-app.use("/comment", commentRouter);
+app.use("/articles", articlesRouter);
+app.use("/comments", commentsRouter);
+app.use(`/users`, usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
